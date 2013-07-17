@@ -10,7 +10,7 @@ describe "Static pages" do
 	end
 
 	describe "Home page" do
-		before { visit '/static_pages/home' }
+		before { visit root_path }
 		let(:heading) { 'Sample App' }
 		let(:page_title) { '' }
 
@@ -38,8 +38,8 @@ describe "Static pages" do
 
 	describe "Contact page" do
 		before { visit contact_path }
-		let(:heading) { 'About Us' }
-		let(:page_title) { 'About Us' }
+		let(:heading) { 'Contact Us' }
+		let(:page_title) { 'Contact Us' }
 
 		it_should_behave_like "all static pages"
 	end
