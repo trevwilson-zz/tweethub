@@ -82,5 +82,9 @@ describe "Static pages" do
 		click_link "Home"
 		click_link "Sign up now!"
 		page.should have_selector 'title', text: full_title('Sign Up')
+		page.should_not have_link('Users')
+		page.should_not have_link('Profile')
+		page.should_not have_link('Settings')
+		page.should_not have_link('Sign out')
 	end
 end
