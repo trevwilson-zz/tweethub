@@ -1,7 +1,22 @@
 <%= form_for(@micropost) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 	<div class="field">
-		<%= f.text_area :content, placeholder: "Compose new micropost..." %>
+		<%= f.text_area :content, placeholder: "Compose new micropost...", onkeyup: "charCount(this)" %>
 	</div>
+	<div>
+		<span style="display:inline-block">Characters left: </span><span style="display:inline-block" id="chars-remaining">140</span>
+	</div>
+	<script>
+		function charCount(element){
+			var charsLeft = 140-element.value.length;
+			$("#chars-remaining").html(charsLeft);
+			if(charsLeft < 0){
+				$("#chars-remaining").attr("style","display:inline-block;color:red");
+			}
+			else{
+				$("#chars-remaining").attr("style","display:inline-block;color:black");
+			}
+		}
+	</script>
 	<%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>
