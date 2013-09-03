@@ -16,7 +16,7 @@ require 'spec_helper'
 
 describe "User" do
 	before do
-		@user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar")
+		@user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar", username: "trevwilson")
 	end
 
 	subject { @user }
@@ -37,6 +37,7 @@ describe "User" do
 	it { should respond_to(:follow!) }
 	it { should respond_to(:reverse_relationships) }
 	it { should respond_to(:followers) }
+	it { should respond_to(:username) }
 
 	it { should be_valid }
 	it { should_not be_admin }
